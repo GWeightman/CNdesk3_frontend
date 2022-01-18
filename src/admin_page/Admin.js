@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AboutMe from "./aboutMe";
+import Create from "./createNewJob";
+import ListedJobs from "./listedJobs";
+import Search from "./search";
 
 const Admin = () => {
     function Home() {
@@ -43,29 +46,28 @@ const Admin = () => {
                     </ul>
                     </nav>
                     <Routes>
-                        <Route path="/Profile" element = {<Profile/>} />
-                        
-                        <Route path="/Logout"
-                            element = {<Logout/>} />
-                        
-                        <Route path="/"
-                            element = {<Home />} />
-                    
+                        <Route path="/create" element={<Create/>}/>
+                        <Route path="/Profile" element = {<Profile/>} />                    
+                        <Route path="/Logout" element = {<Logout/>} />                       
+                        <Route path="/" element = {<Home />} />
                     </Routes>
                 </div>
+                <button><Link to={"/create"}>Create a new job</Link></button>
+                
                 </Router>
             </div>
                 <div>
                     <AboutMe />
                 </div>
+                <div>
+                    
+                    <button onClick={Create}>Create a new job</button>;
+                    <button onClick={Search}>Find a developer</button>;
+                    <button onClick={ListedJobs}>Listed jobs</button>;
+                </div>
         </div>
-        
     );
 }
 
-{/* <div className="buttons">
-            <button onClick={create}>Create a new job</button>;
-            <button onClick={find}>Find a developer</button>;
-            <button onClick={list}>Listed jobs</button>;
-        </div> */}
+
 export default Admin;
