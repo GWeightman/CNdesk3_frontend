@@ -2,7 +2,7 @@ const { useState } = require("react");
 
 const MainPage = () => {
     const [jobPosts, setJobPosts] = useState([]);
-    const [jobs] = useState([
+    const [jobs, setJobs] = useState([
         {
             id: 1,
             title: "e-commerce website, front-end",

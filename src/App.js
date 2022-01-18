@@ -5,6 +5,9 @@ import Login from './components/login'
 import Signup from './components/signup'
 import Home from './components/home'
 import Contact from './components/contact';
+import MainPage from './components/mainPage';
+import Admin from './admin_page/Admin'
+
 
 const App = () => {
   const [username, setUsername] = useState();
@@ -22,6 +25,8 @@ const App = () => {
           <Route path='contact' element={<Contact/>}/>
           <Route path='login' element={<Login setUsername={setUsername} setPassword={setPassword}/>}/>
           <Route path='signup' element={<Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} fname={fname} setFname={setFname} sname={sname} setSname={setSname} email={email} setEmail={setEmail}/>}/>
+          <Route path='mainpage' element={<MainPage/>}/>
+          <Route path='admin' element={<Admin/>}/>
         </Routes>
       </BrowserRouter>
       
