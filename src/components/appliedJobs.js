@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const appliedJobs = () => {
+const AppliedJobs = () => {
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [savedJobs, setSavedJobs] = useState([]);
     const [jobs] = useState([
@@ -75,4 +75,4 @@ const appliedJobs = () => {
     )
 };
 
-export default appliedJobs;
+export default AppliedJobs;
