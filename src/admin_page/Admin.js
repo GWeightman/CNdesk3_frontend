@@ -1,9 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AboutMe from "./aboutMe";
 import Create from "./createNewJob";
 import ListedJobs from "./listedJobs";
 import Search from "./search";
+import { useState } from "react";
+
 
 const Admin = () => {
     function Home() {
@@ -27,10 +29,11 @@ const Admin = () => {
         </div>
         )
     }
+
     return (
         <div>
             <div>
-                <Router>
+                <BrowserRouter>
                 <div>
                     <nav className="navbar">
                     <ul>
@@ -46,24 +49,24 @@ const Admin = () => {
                     </ul>
                     </nav>
                     <Routes>
-                        <Route path="/create" element={<Create/>}/>
-                        <Route path="/Profile" element = {<Profile/>} />                    
-                        <Route path="/Logout" element = {<Logout/>} />                       
                         <Route path="/" element = {<Home />} />
+                        <Route path="/Profile" element = {<Profile/>} />                    
+                        <Route path="/Logout" element = {<Logout/>} /> 
+                        <Route path="create" element={<Create/>}/>
+                        <Route path="find" element={<Create/>}/> 
+                        <Route path="list" element={<Create/>}/>                                          
                     </Routes>
                 </div>
-                <button><Link to={"/create"}>Create a new job</Link></button>
-                
-                </Router>
-            </div>
                 <div>
-                    <AboutMe />
+                <AboutMe/>
+                <button><Link to={"/create"}>Create a new job</Link></button>
+                <button><Link to={"/find"}>Find a developer</Link></button>
+                <button><Link to={"/list"}>Listed jobs</Link></button>
                 </div>
+                </BrowserRouter>
+            </div>               
                 <div>
                     
-                    <button onClick={Create}>Create a new job</button>;
-                    <button onClick={Search}>Find a developer</button>;
-                    <button onClick={ListedJobs}>Listed jobs</button>;
                 </div>
         </div>
     );
