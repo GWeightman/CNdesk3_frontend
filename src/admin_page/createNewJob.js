@@ -1,12 +1,14 @@
-import react from "react";
-import { Link } from "react-router-dom";
-import Admin from "./Admin";
+import { createNewJobFetch } from "../utilities/fetches";
 
-const Create = () =>{
-        const handleSubmit = event => {
-         event.preventDefault();
-         alert('You have submitted the form.')
-       }
+const Create = (clientname, description, salary, phonenumber, email) =>{
+  const createJobHandler = async (e) => {
+    e.preventDefault();
+    await createNewJobFetch(clientname, description, salary, phonenumber, email)
+}
+      //   const handleSubmit = event => {
+      //    event.preventDefault();
+      //    alert('You have submitted the form.')
+      //  }
       
         return(
             <div>
@@ -14,15 +16,19 @@ const Create = () =>{
                 
           <div className="wrapper">
             <h1>How About Them Apples</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={createJobHandler}>
               <fieldset>
                 <label>
-                  <p>Job title</p>
+                  <p>Client name</p>
                   <input title="title" />
                   <p>Description</p>
                   <input description="description" />
                   <p>Salary</p>
                   <input salary = "salary" />
+                  <p>Number</p>
+                  <input description= "number" />
+                  <p>Email</p>
+                  <input email = "email" />
                 </label>
               </fieldset>
               <button type="submit">Submit</button>
