@@ -29,6 +29,14 @@ const MainPage = () => {
             value: "£1200",
             description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
+        {
+            id: 4,
+            title: "start-up, front-end, UI/UX",
+            techStack: "JavaScript, React.js",
+            duration: "6 weeks",
+            value: "£1800",
+            description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
     ]);
 
     //Methods:
