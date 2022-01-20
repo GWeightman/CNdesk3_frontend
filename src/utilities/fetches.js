@@ -57,6 +57,8 @@ export const createNewJobFetch = async (clientname, description, salary, phonenu
 }
 
 export const loadJobsFetch = async (clientname, description, salary, phonenumber, email, language) => {
+
+export const listedJobsFetch = async (setClientName, setDescription, setSalary, setPhoneNumber, setEmail, setLanguage) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}jobs`, {
             method: "GET",
@@ -72,6 +74,14 @@ export const loadJobsFetch = async (clientname, description, salary, phonenumber
         });
         const data = await response.json();
         return data   
+        });
+        const data = await response.json();
+        setClientName(data.jobs.clientname);
+        setDescription(data.jobs.description);
+        setSalary(data.jobs.salary);
+        setPhoneNumber(data.jobs.phonenumber);
+        setEmail(data.jobs.email);
+        setLanguage(data.jobs.language);  
     } catch (error){
         console.log(error);
     }
