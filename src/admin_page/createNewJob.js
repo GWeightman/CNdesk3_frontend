@@ -7,10 +7,10 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
     e.preventDefault();
     await createNewJobFetch(clientname, description, salary, phonenumber, email)
   }
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   alert('You have submitted the form.')
-  // }
+  const handleSubmit = event => {
+    event.preventDefault();
+    alert('You have submitted the form.')
+  }
       
         return(
             <div>
@@ -26,7 +26,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
                   <input onChange = {(e) => setPhoneNumber(e.target.value)} placeholder = 'phonenumber' />
                   <p>Email</p>
                   <input onChange = {(e) => setEmail(e.target.value)} placeholder = 'email' />
-              <button type="submit">Submit</button>
+              <button onClick={handleSubmit} type="submit">Submit</button>
             </form>
           </div>
         )
