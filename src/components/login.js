@@ -11,7 +11,7 @@ const Login = ({username, setUsername, password, setPassword}) => {
           if(ret_val.status == "admin"){
               window.location.href = "/admin"
           } else {
-              window.location.href = "/devpage"
+              window.location.href = "/mainpage"
           }
         } else {
             window.location.href = "/notauth"
