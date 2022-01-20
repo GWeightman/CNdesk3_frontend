@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AboutMe from "./aboutMe";
 import Create from "./createNewJob";
 import ListedJobs from "./listedJobs";
-import Search from "./search";
-import { useState } from "react";
-
+import FindDeveloper from "./findDeveloper"
 
 const Admin = () => {
+    const [clientname, setClientName] = useState();
+    const [description, setDescription] = useState();
+    const [salary, setSalary] = useState();
+    const [phonenumber, setPhoneNumber] = useState();
+    const [email, setEmail] = useState();
+    
     function Home() {
         return (<div>
         <h1 className="header">Welcome</h1>
@@ -52,9 +56,9 @@ const Admin = () => {
                         <Route path="/" element = {<Home />} />
                         <Route path="/Profile" element = {<Profile/>} />                    
                         <Route path="/Logout" element = {<Logout/>} /> 
-                        <Route path="create" element={<Create/>}/>
-                        <Route path="find" element={<Create/>}/> 
-                        <Route path="list" element={<Create/>}/>                                          
+                        <Route path="create" element={<Create clientname={clientname} setClientName={setClientName} description={description} setDescription={setDescription} salary={salary} setSalary={setSalary} phonenumber={phonenumber} setPhoneNumber={setPhoneNumber} email={email} setEmail={setEmail}/>}/>
+                        <Route path="list" element={<ListedJobs clientname={clientname} description={description} salary={salary} phonenumber={phonenumber} email={email}/>}/> 
+                        <Route path="find" element={<FindDeveloper />}/>                                          
                     </Routes>
                 </div>
                 <div>

@@ -1,10 +1,10 @@
 import react from "react";
 
-const Search = () => {
+const FindDeveloper = () => {
     return(
         <h1>What are you looking for?</h1>
         //Read from developer CRUD
     )
 }
 
-export default Search;
+export default FindDeveloper;
