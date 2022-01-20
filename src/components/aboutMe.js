@@ -1,10 +1,5 @@
-import { useState } from "react";
-import ReactDOM from "react-dom";
-
-function AboutMe() {
-  const [textarea, setTextarea] = useState(
-    "About me"
-  );
+function AboutMe({textarea, setTextarea}) {
+  
 
   const handleChange = (event) => {
     setTextarea(event.target.value)

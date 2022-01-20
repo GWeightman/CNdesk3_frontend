@@ -2,11 +2,11 @@
 import React from 'react';
 import { createNewJobFetch } from "../utilities/fetches";
 
-const Create = ({clientname, setClientName, description, setDescription, salary, setSalary, phonenumber, setPhoneNumber, email, setEmail}) =>{
+const Create = ({clientname, setClientName, description, setDescription, salary, setSalary, phonenumber, setPhoneNumber, clientemail, setclientEmail}) =>{
 
   const createJobHandler = async (e) => {
     e.preventDefault();
-    await createNewJobFetch(clientname, description, salary, phonenumber, email)
+    await createNewJobFetch(clientname, description, salary, phonenumber, clientemail)
   }
   const handleSubmit = event => {
     event.preventDefault();
@@ -25,7 +25,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
                   <p>Number</p>
                   <input onChange = {(e) => setPhoneNumber(e.target.value)} placeholder = 'phonenumber' />
                   <p>Email</p>
-                  <input onChange = {(e) => setEmail(e.target.value)} placeholder = 'email' />
+                  <input onChange = {(e) => setclientEmail(e.target.value)} placeholder = 'email' />
               <button onClick={handleSubmit} type="submit">Submit</button>
             </form>
           </div>
