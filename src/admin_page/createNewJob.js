@@ -11,31 +11,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
   const handleSubmit = event => {
     event.preventDefault();
     alert('You have submitted the form.')
-  }
-<<<<<<< HEAD
-=======
-
-import React, {useState} from 'react';
-import { createNewJobFetch } from "../utilities/fetches";
-
-const Create = ({clientname, description, salary, phonenumber, email}) =>{
-  const [clientname, setClientName] = useState();
-  const [description, setDescription] = useState();
-  const [salary, setSalary] = useState();
-  const [phonenumber, setPhoneNumber] = useState();
-  const [email, setEmail] = useState();
-
-  const createJobHandler = async (e) => {
-    e.preventDefault();
-    await createNewJobFetch(clientname, description, salary, phonenumber, email)
-}
-        const handleSubmit = event => {
-         event.preventDefault();
-         alert('You have submitted the form.')
-       }
-
->>>>>>> 515fc8632a9175f9554f037a5e789d8971f9956e
-      
+  }   
         return(
             <div>
                 <h1 className="header">Create a new job</h1>  
