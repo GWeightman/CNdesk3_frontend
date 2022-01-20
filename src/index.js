@@ -7,7 +7,7 @@ import Admin from './admin_page/Admin';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Admin/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

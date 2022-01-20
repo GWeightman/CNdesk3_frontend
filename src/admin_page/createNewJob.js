@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { createNewJobFetch } from "../utilities/fetches";
 
@@ -7,10 +8,30 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
     e.preventDefault();
     await createNewJobFetch(clientname, description, salary, phonenumber, email)
   }
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   alert('You have submitted the form.')
-  // }
+  const handleSubmit = event => {
+    event.preventDefault();
+    alert('You have submitted the form.')
+  }
+
+import React, {useState} from 'react';
+import { createNewJobFetch } from "../utilities/fetches";
+
+const Create = ({clientname, description, salary, phonenumber, email}) =>{
+  const [clientname, setClientName] = useState();
+  const [description, setDescription] = useState();
+  const [salary, setSalary] = useState();
+  const [phonenumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+
+  const createJobHandler = async (e) => {
+    e.preventDefault();
+    await createNewJobFetch(clientname, description, salary, phonenumber, email)
+}
+        const handleSubmit = event => {
+         event.preventDefault();
+         alert('You have submitted the form.')
+       }
+
       
         return(
             <div>

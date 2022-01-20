@@ -16,6 +16,11 @@ const App = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [status, setStatus] = useState();
+  const [appliedJobs, setAppliedJobs] = useState([]);
+  const [savedJobs, setSavedJobs] = useState([]);
+  const [page, setPage] = useState("main");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [jobs, setJobs] = useState([]);
 
   return (
     <div className="App">
@@ -25,8 +30,7 @@ const App = () => {
           <Route path='contact' element={<Contact/>}/>
           <Route path='login' element={<Login setUsername={setUsername} setPassword={setPassword}/>}/>
           <Route path='signup' element={<Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} fname={fname} setFname={setFname} sname={sname} setSname={setSname} email={email} setEmail={setEmail}/>}/>
-          <Route path='mainpage' element={<MainPage/>}/>
-          <Route path='admin' element={<Admin/>}/>
+          <Route path='mainpage' element={<MainPage appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs} />}/>
         </Routes>
       </BrowserRouter>
       
