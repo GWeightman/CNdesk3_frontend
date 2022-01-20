@@ -1,42 +1,7 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Modal from "react-modal";
 
-const MainPage = () => {
-  const [appliedJobs, setAppliedJobs] = useState([]);
-  const [savedJobs, setSavedJobs] = useState([]);
-  const [page, setPage] = useState("main");
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const [jobs] = useState([
-    {
-      id: 1,
-      title: "e-commerce website, front-end",
-      techStack: "JavaScript, React.js",
-      duration: "3 weeks",
-      value: "£650",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      id: 2,
-      title: "REST API, back-end",
-      techStack: "JavaScript, Node.js, mongoDB, authentication",
-      duration: "2 weeks",
-      value: "£550",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      id: 3,
-      title: "start-up, front-end, UI/UX",
-      techStack: "JavaScript, React.js",
-      duration: "4 weeks",
-      value: "£1200",
-      description:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-  ]);
+const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, setPage, modalOpen, setModalOpen, jobs, setJobs}) => {
+  
 
   //Methods:
   const addJob = (job) => {
@@ -155,23 +120,6 @@ const MainPage = () => {
 
   return (
     <div className="wrapper">
-        {/*
-        <BrowserRouter>
-            <nav className="navbar">
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/JobPosts">Applications</Link>
-                </li>
-            </ul>
-            </nav>
-            <Routes>
-                <Route path="/" element = {<renderMainPage />} />
-                <Route path="jobPosts" element = {<renderJobPosts />} />
-            </Routes>
-        </BrowserRouter> */}
         <div className="topnav">
             <a className="nav-link" onClick={() => navigateTo("main")}>
             Home
@@ -188,14 +136,3 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-/*
-<div className="topnav">
-            <a className="nav-link" onClick={() => navigateTo("main")}>
-            Home
-            </a>
-            <a className="nav-link" onClick={() => navigateTo("jobPosts")}>
-            Applications
-            </a>
-        </div>
-*/
