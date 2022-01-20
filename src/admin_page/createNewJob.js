@@ -12,6 +12,8 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
     event.preventDefault();
     alert('You have submitted the form.')
   }
+<<<<<<< HEAD
+=======
 
 import React, {useState} from 'react';
 import { createNewJobFetch } from "../utilities/fetches";
@@ -32,6 +34,7 @@ const Create = ({clientname, description, salary, phonenumber, email}) =>{
          alert('You have submitted the form.')
        }
 
+>>>>>>> 515fc8632a9175f9554f037a5e789d8971f9956e
       
         return(
             <div>
@@ -47,7 +50,7 @@ const Create = ({clientname, description, salary, phonenumber, email}) =>{
                   <input onChange = {(e) => setPhoneNumber(e.target.value)} placeholder = 'phonenumber' />
                   <p>Email</p>
                   <input onChange = {(e) => setEmail(e.target.value)} placeholder = 'email' />
-              <button type="submit">Submit</button>
+              <button onClick={handleSubmit} type="submit">Submit</button>
             </form>
           </div>
         )
