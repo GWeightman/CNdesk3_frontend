@@ -38,7 +38,7 @@ const App = () => {
         <Routes>
           <Route index element={<Home/>}/>
           <Route path='contact' element={<Contact/>}/>
-          <Route path='login' element={<Login setUsername={setUsername} setPassword={setPassword}/>}/>
+          <Route path='login' element={<Login username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>}/>
           <Route path='signup' element={<Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} fname={fname} setFname={setFname} sname={sname} setSname={setSname} email={email} setEmail={setEmail}/>}/>
           <Route path='mainpage' element={<MainPage appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs} />}/>
           <Route path='aboutme' element={<AboutMe textarea={textarea} setTextarea={setTextarea} />}/>
