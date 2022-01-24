@@ -64,10 +64,7 @@ export const listedJobsFetch = async (setClientName) => {
             headers: {"Content-Type": "application/json"},
         });
         const data = await response.json();
-        console.log(data);
-        {data.map((data) =>{
-        data.name = listedJobsFetch.name.clientname
-        console.log(data)})}
+        // console.log(data);        
         return data;
     } catch (error){
         console.log(error);
