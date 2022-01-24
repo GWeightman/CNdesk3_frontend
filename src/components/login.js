@@ -1,23 +1,24 @@
-import { Link } from "react-router-dom";
 import { login_fetch } from "../utilities/fetches";
 
-const Login = ({username, setUsername, password, setPassword}) => {
+const Login = ({username, setUsername, password, setPassword, fname, setFname}) => {
 
-    const login_handler = async () => {
+    const login_handler = async (e) => {
         try {
+            e.preventDefault();
             const ret_val = await login_fetch(username, password)
-            console.log(ret_val.password)
-            if (ret_val.username === username) {
-                if(ret_val.status == "admin"){
-                    window.location.href = "/admin"
-                } else {
-                    window.location.href = "/mainpage"
-                }
+            setFname(ret_val.firstname)
+            if (ret_val === "NoAuth") {
+                window.location.href = "/notauth"                
+            } else if (ret_val.status === "admin") {
+                window.location.href = "/admin"
+            } else if (ret_val.status === "dev") {
+                window.location.href = "/mainpage"
             } else {
                 window.location.href = "/notauth"
             }
         } catch (error) {
             window.location.href = "/notauth"
+            console.log(error)
         }
     }
 
@@ -25,20 +26,26 @@ const Login = ({username, setUsername, password, setPassword}) => {
         window.location.href = "/signup"
     }
 
+    const return_button = () => {
+        window.location.href ="/"
+    }
+
     return(
         <div>
             <h1>Awesome Company</h1>
             <br/>
             <form onSubmit={login_handler}>
-                <p>Username:</p>
+                Username:<br/>                
                 <input onChange={(e) => setUsername(e.target.value)} placeholder='username'/>
-                <p>Password:</p>
+                <br/>
+                Password:<br/>
                 <input onChange={(e) => setPassword(e.target.value)} placeholder='password'/>
                 <br/>
                 <br/>
-                <button type='submit'>submit</button>
-                <button onClick={signup_button}>sign up</button>
+                <input type='submit' value="Submit"/>
             </form>
+            <button onClick={signup_button}>Sign Up</button>
+            <button onClick={return_button}>Go Back</button>
         </div>
     )
 }
