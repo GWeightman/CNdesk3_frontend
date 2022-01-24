@@ -8,26 +8,21 @@ const Contact = () => {
 
     return(
         <div>
-            <form action="mailto:admin@nodenation.uk" method="post" encType="text/plain">
-                <h1>Place a job request with Node Nation</h1>
-                <p>Your Name</p>
-                <input placeholder='client name'/>
-                <p>Contact Number</p>
-                <input placeholder="contact number"/>
-                <p>Email</p>
-                <input placeholder="email"/>
-                <p>If you know what language you would like to use</p>
-                <input placeholder="language"/>
-                <p>How much would you like be looking at paying</p>
-                <input placeholder="pay range"/>
-                <p>Give a description of the project brief</p>
-                <input placeholder="job description"/>
+            <h1>Place a job request with Node Nation</h1>
+            <form action="mailto:admin@nodenation.uk" subject="Job%Request" method="post" encType="text/plain">
+                Username:<input type="text" name="name" required/>
+                Contact Number:<input type="number" name="contact number"/>
+                Email:<input type="text" name="email" required/>
+                Coding Language:<input type="text" name="language"/>
+                Pay Range:<input type="number" name="pay range"/>
+                Job Description:<input type="text" name="job description" required/>
                 <br/>
                 <br/>
+                <input type="submit" value="Send"/>
+                <button onClick={return_handler}>Go Back</button>
             </form>
 
-            <button type="submit">send</button>
-            <button onClick={return_handler}>go back</button>
+            
         </div>
     )
 }
