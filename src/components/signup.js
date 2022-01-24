@@ -6,6 +6,7 @@ const Signup = ({username, setUsername, password,  setPassword, fname,  setFname
     const signin_handler = async (e) => {
         e.preventDefault();
         await signup_fetch(username, password, fname, sname, email)
+        window.location.href = "/mainpage"
     }
 
     return(
