@@ -1,25 +1,28 @@
 import { Link } from "react-router-dom"
 
 const Contact = () => {
+
+    const return_handler = () => {
+        window.location.href = "/"
+    }
+
     return(
         <div>
             <h1>Place a job request with Node Nation</h1>
-            <p>Your Name</p>
-            <input placeholder='client name'/>
-            <p>Contact Number</p>
-            <input placeholder="contact number"/>
-            <p>Email</p>
-            <input placeholder="email"/>
-            <p>If you know what language you would like to use</p>
-            <input placeholder="language"/>
-            <p>How much would you like be looking at paying</p>
-            <input placeholder="pay range"/>
-            <p>Give a description of the project brief</p>
-            <input placeholder="job description"/>
-            <br/>
-            <br/>
-            <button>send</button>
-            <button><Link to={"/"}>go back</Link></button>
+            <form action="mailto:admin@nodenation.uk" subject="Job%Request" method="post" encType="text/plain">
+                Username:<br/><input type="text" name="name" required/><br/>
+                Contact Number:<br/><input type="number" name="contact number"/><br/>
+                Email:<br/><input type="text" name="email" required/><br/>
+                Coding Language:<br/><input type="text" name="language"/><br/>
+                Pay Range:<br/><input type="number" name="pay range"/><br/>
+                Job Description:<br/><textarea type="text" name="job description" required></textarea>
+                <br/>
+                <br/>
+                <input type="submit" value="Send"/>
+                <button onClick={return_handler}>Go Back</button>
+            </form>
+
+            
         </div>
     )
 }

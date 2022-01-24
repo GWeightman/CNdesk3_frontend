@@ -8,10 +8,11 @@ import Contact from './components/contact';
 import MainPage from './components/mainPage';
 import AboutMe from './components/aboutMe';
 import Admin from './components/Admin';
-import FindDeveloper from './components/findDeveloper';
+import FindUser from './components/findUser';
 import ListedJobs from './components/listedJobs'; 
 import Create from './components/createNewJob';
 import JobPosts from './components/jobPosts';
+import Notauth from './components/notauth';
 
 const App = () => {
   const [username, setUsername] = useState();
@@ -44,8 +45,9 @@ const App = () => {
           <Route path='aboutme' element={<AboutMe textarea={textarea} setTextarea={setTextarea} />}/>
           <Route path="create" element={<Create clientname={clientname} setClientName={setClientName} description={description} setDescription={setDescription} salary={salary} setSalary={setSalary} phonenumber={phonenumber} setPhoneNumber={setPhoneNumber} clientemail={clientemail} setclientEmail={setclientEmail}/>}/>
           <Route path="list" element={<ListedJobs clientname={clientname} description={description} salary={salary} phonenumber={phonenumber} clientemail={clientemail} jobs={jobs} setJobs={setJobs}/>}/> 
-          <Route path="find" element={<FindDeveloper />}/>
+          <Route path="find" element={<FindUser username={username} setUsername={setUsername} />}/>
           <Route path='admin' element={<Admin/>}/> 
+          <Route path='notauth' element={<Notauth/>}/>
           <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />
         </Routes>
       </BrowserRouter>

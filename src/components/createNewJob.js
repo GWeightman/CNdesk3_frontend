@@ -26,6 +26,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
                   <input onChange = {(e) => setPhoneNumber(e.target.value)} placeholder = 'phonenumber' />
                   <p>Email</p>
                   <input onChange = {(e) => setclientEmail(e.target.value)} placeholder = 'email' />
+                  //language
               <button onClick={handleSubmit} type="submit">Submit</button>
             </form>
           </div>
