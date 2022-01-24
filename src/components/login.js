@@ -3,17 +3,20 @@ import { login_fetch } from "../utilities/fetches";
 
 const Login = ({username, setUsername, password, setPassword}) => {
 
-    const login_handler = async (e) => {
-        e.preventDefault();
-        const ret_val = await login_fetch(username, password)
-        console.log(ret_val.password)
-        if (ret_val.username === username) {
-          if(ret_val.status == "admin"){
-              window.location.href = "/admin"
-          } else {
-              window.location.href = "/mainpage"
-          }
-        } else {
+    const login_handler = async () => {
+        try {
+            const ret_val = await login_fetch(username, password)
+            console.log(ret_val.password)
+            if (ret_val.username === username) {
+                if(ret_val.status == "admin"){
+                    window.location.href = "/admin"
+                } else {
+                    window.location.href = "/mainpage"
+                }
+            } else {
+                window.location.href = "/notauth"
+            }
+        } catch (error) {
             window.location.href = "/notauth"
         }
     }
