@@ -5,11 +5,9 @@ const ListedJobs = ({clientname, description, salary, phonenumber, email, jobs, 
   
   const getJobs = async() =>{
     const data = await listedJobsFetch()
-    // const jobData = await data.JSON
-    setJobs(data)
-    
+    setJobs(data)  
   }
-      
+     
 useEffect(() =>{
   getJobs()
 },[])
@@ -21,8 +19,7 @@ if (!jobs){
         <div>
           <h1>Here you can find all the listed jobs</h1>
           <br></br>
-          <div>
-          
+          <div>  
           {jobs.map((job,index) =>{
             return(
               <div key={index}>
