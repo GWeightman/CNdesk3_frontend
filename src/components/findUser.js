@@ -1,44 +1,59 @@
 import { useEffect } from "react";
-import { userFetch } from "../utilities/fetches";
+import { adminFetch, developerFetch } from "../utilities/fetches";
 
 
-const FindUser = ({username, setUsername}) => {
+const FindUser = ({dev, setDev, admin, setAdmin, username, setUsername}) => {
     
-    const getUsers = async() =>{
-        const data = await userFetch()
-        setUsername(data)  
+    const getAdmins = async() =>{
+        const data = await adminFetch()
+        setAdmin(data)  
     }
-             
-    useEffect(() =>{
-        getUsers()
-    },[])
-        
-    if (!username){
-        console.log(null)
-        return null
-        }
 
-    const useMapper = () =>{
-        
-        
+    const getDev = async() =>{
+        const data = await developerFetch()
+        setDev(data)
     }
+    
+    useEffect(() =>{
+        getAdmins()
+        getDev()
+    },[])  
+
+    const returnHandler = () => {
+        window.location.href = "/admin"
+    }
+
     return(
         <div>
-        <h1>What are you looking for?</h1>
-        <br/>
-          <div>  
-          {username.map((users,index) =>{
+            <div>
+            <h1>Admins</h1>
+            {admin.map((users,index) =>{
+                return(
+                    <div key={index}>
+                    <p>{users.username}</p>
+                    <br/>
+                    </div>
+                )})}
+            <br/>
+            <h1>Developers</h1>
+            {dev.map((users,index) =>{
+                return(
+                    <div key={index}>
+                    <p>{users.username}</p>
+                    <br/>
+                    </div>
+                )})}
+            </div>
+            <button onClick={returnHandler}>Go back to homepage</button>
+        </div>       
+    )
+        
+}
+{/* {username.map((users,index) =>{
             return(
               <div key={index}>
             <p>{users.username}</p>
             <br/>
             </div>
-        
-        )})}
-        </div>
-        </div>
-    )
-        
-}
-
+        )})} */}
 export default FindUser;
