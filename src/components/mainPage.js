@@ -1,6 +1,16 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { listedJobsFetch } from "../utilities/fetches";
 
-const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, setPage, modalOpen, setModalOpen, jobs, setJobs}) => {
+const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs }) => {
+  
+  
+  //Retreive jobs from the backend:
+  const getJobs = async () => {
+    const data = await listedJobsFetch();
+    setJobs(data);
+
+  }
   
 
   //Methods:
@@ -12,6 +22,7 @@ const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, 
     setSavedJobs([...savedJobs, { ...job }]);
   };
 
+  /*
   const removeJob = (jobToRemove) => {
     setAppliedJobs(appliedJobs.filter((job) => job !== jobToRemove));
   };
@@ -19,6 +30,17 @@ const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, 
   const removeSavedJob = (jobToRemove) => {
     setSavedJobs(savedJobs.filter((job) => job !== jobToRemove));
   };
+  */
+
+  useEffect(() => {
+    getJobs();
+  }, [])
+
+  if (!jobs) {
+    console.log(null);
+    return null;
+  }
+  
 
   return (
     <div className="wrapper">
@@ -35,16 +57,19 @@ const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, 
             </nav>
         </div>
         <div className="centre-section">
-      <h1>Developer: Home</h1>
-      {jobs.map((job, index) => (
+      <h1>Home: Developer Portal</h1>
+
+      {jobs.map((job, index) => {
+        return(
         <div className="job-card" key={index}>
           <div className="card-body">
-            <h3 className="card-title">{job.title}</h3>
-            <h4 className="card-text">{job.techStack}</h4>
-            <h4 className="card-text">
-              {job.duration} | {job.value}
-            </h4>
-            <p className="job-desc">{job.description}</p>
+            <h3 className="card-title">{job.clientname}</h3>
+            <h5 className="card-text">{job.contact_number}</h5>
+            <h5 className="card-text">{job.email}</h5>
+            <h5 className="card-text">
+              {job.pay_range} | {job.language}
+            </h5>
+            <p className="job-desc">{job.job_description}</p>
           </div>
           <button className="card-btn" onClick={() => addJob(job)}>
             Apply now
@@ -53,7 +78,7 @@ const MainPage = ( {appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, 
             Save job
           </button>
         </div>
-      ))}
+      )})}
     </div>
        
     </div>
