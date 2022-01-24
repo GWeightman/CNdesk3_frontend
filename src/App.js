@@ -12,6 +12,7 @@ import FindUser from './components/findUser';
 import ListedJobs from './components/listedJobs'; 
 import Create from './components/createNewJob';
 import JobPosts from './components/jobPosts';
+import Notauth from './components/notauth';
 
 const App = () => {
   const [username, setUsername] = useState();
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="list" element={<ListedJobs clientname={clientname} description={description} salary={salary} phonenumber={phonenumber} clientemail={clientemail} jobs={jobs} setJobs={setJobs}/>}/> 
           <Route path="find" element={<FindUser username={username} setUsername={setUsername} />}/>
           <Route path='admin' element={<Admin/>}/> 
+          <Route path='notauth' element={<Notauth/>}/>
           <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />
         </Routes>
       </BrowserRouter>
