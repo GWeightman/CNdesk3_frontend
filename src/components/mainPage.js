@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { listedJobsFetch } from "../utilities/fetches";
 
-const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs }) => {
-  
+const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username }) => {
   
   //Retreive jobs from the backend:
   const getJobs = async () => {
@@ -12,25 +11,15 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
 
   }
   
-
   //Methods:
   const addJob = (job) => {
     setAppliedJobs([...appliedJobs, { ...job }]);
   };
 
+  
   const saveJob = (job) => {
     setSavedJobs([...savedJobs, { ...job }]);
   };
-
-  /*
-  const removeJob = (jobToRemove) => {
-    setAppliedJobs(appliedJobs.filter((job) => job !== jobToRemove));
-  };
-
-  const removeSavedJob = (jobToRemove) => {
-    setSavedJobs(savedJobs.filter((job) => job !== jobToRemove));
-  };
-  */
 
   useEffect(() => {
     getJobs();
@@ -57,7 +46,7 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
             </nav>
         </div>
         <div className="centre-section">
-      <h1>Home: Developer Portal</h1>
+      <h1> {username} : Developer Portal</h1>
 
       {jobs.map((job, index) => {
         return(
@@ -67,8 +56,9 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
             <h5 className="card-text">{job.contact_number}</h5>
             <h5 className="card-text">{job.email}</h5>
             <h5 className="card-text">
-              {job.pay_range} | {job.language}
+              £{job.pay_range} | {job.language}
             </h5>
+            <h5>Developer: {job.dev_name}</h5>
             <p className="job-desc">{job.job_description}</p>
           </div>
           <button className="card-btn" onClick={() => addJob(job)}>
