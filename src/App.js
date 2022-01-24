@@ -7,7 +7,7 @@ import Home from './components/home'
 import Contact from './components/contact';
 import MainPage from './components/mainPage';
 import AboutMe from './components/aboutMe';
-import Admin from './components/Admin';
+import Admin from './components/admin';
 import FindUser from './components/findUser';
 import ListedJobs from './components/listedJobs'; 
 import Create from './components/createNewJob';
@@ -32,7 +32,9 @@ const App = () => {
   const [salary, setSalary] = useState();
   const [phonenumber, setPhoneNumber] = useState();
   const [clientemail, setclientEmail] = useState();
-
+  const [language, setLanguage] = useState();
+  const [admin, setAdmin] = useState([]);
+  const [dev, setDev] = useState([])
   return (
     <div className="App">
       <BrowserRouter>
@@ -43,9 +45,9 @@ const App = () => {
           <Route path='signup' element={<Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} fname={fname} setFname={setFname} sname={sname} setSname={setSname} email={email} setEmail={setEmail}/>}/>
           <Route path='mainpage' element={<MainPage appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs} />}/>
           <Route path='aboutme' element={<AboutMe textarea={textarea} setTextarea={setTextarea} />}/>
-          <Route path="create" element={<Create clientname={clientname} setClientName={setClientName} description={description} setDescription={setDescription} salary={salary} setSalary={setSalary} phonenumber={phonenumber} setPhoneNumber={setPhoneNumber} clientemail={clientemail} setclientEmail={setclientEmail}/>}/>
+          <Route path="create" element={<Create clientname={clientname} setClientName={setClientName} description={description} setDescription={setDescription} salary={salary} setSalary={setSalary} phonenumber={phonenumber} setPhoneNumber={setPhoneNumber} clientemail={clientemail} setclientEmail={setclientEmail} language={language} setLanguage={setLanguage}/>}/>
           <Route path="list" element={<ListedJobs clientname={clientname} description={description} salary={salary} phonenumber={phonenumber} clientemail={clientemail} jobs={jobs} setJobs={setJobs}/>}/> 
-          <Route path="find" element={<FindUser username={username} setUsername={setUsername} />}/>
+          <Route path="find" element={<FindUser username={username} setUsername={setUsername} admin={admin} setAdmin={setAdmin} dev={dev} setDev = {setDev} />}/>
           <Route path='admin' element={<Admin/>}/> 
           <Route path='notauth' element={<Notauth/>}/>
           <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />

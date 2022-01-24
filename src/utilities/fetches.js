@@ -117,3 +117,31 @@ export const userFetch = async () => {
         console.log(error);
     }
 }
+
+export const adminFetch = async () => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}user/admin`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const developerFetch = async () => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}user/dev`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
