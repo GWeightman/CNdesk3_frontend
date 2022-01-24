@@ -71,6 +71,39 @@ export const listedJobsFetch = async () => {
     }
 }
 
+export const updateUserFetch = async (username, password, email) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" }, 
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password,
+            }),
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+/*
+export const deleteUserFetch = async (username) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}user/${username}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }, 
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+*/
+
 export const userFetch = async () => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {

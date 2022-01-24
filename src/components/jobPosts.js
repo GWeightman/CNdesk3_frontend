@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
+import { updateUserFetch } from "../utilities/fetches";
 
-const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, setPage, modalOpen, setModalOpen, jobs, setJobs}) => {
+const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOpen, setModalOpen, username, setUsername, email, setEmail, password, setPassword}) => {
     
+    const handleUpdate = async (username, email, password) => {
+        const data = await updateUserFetch();
+        setUsername(data.username);
+        setEmail(data.email);
+        setPassword(data.password);
+    };
+
+    /*
+    const handleDelete = async () => {
+        await deleteUserFetch();
+    }
+    */
+
     //Methods:
     const addJob = (job) => {
         setAppliedJobs([...appliedJobs, { ...job }]);
@@ -35,18 +49,20 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, s
             </nav>
         </div>
             <div className="centre-section">
-      <h1>Developer: Jobs Page</h1>
+      <h1>Developer {username}: Jobs Page</h1>
       <div className="applied-jobs">
           <h2>Current Applications</h2>
           {appliedJobs.map((job, index) => (
           <div className="job-card" key={index}>
               <div className="card-body">
-              <h3 className="card-title">{job.title}</h3>
-              <h4 className="card-text">{job.techStack}</h4>
-              <h4 className="card-text">
-                  {job.duration} | {job.value}
-              </h4>
-              <p className="job-desc">{job.description}</p>
+                <h3 className="card-title">{job.clientname}</h3>
+                <h5 className="card-text">{job.contact_number}</h5>
+                <h5 className="card-text">{job.email}</h5>
+                <h5 className="card-text">
+                £{job.pay_range} | {job.language}
+                </h5>
+                <h5>Developer: {job.dev_name}</h5>
+                <p className="job-desc">{job.job_description}</p>
               </div>
               <button className="card-btn" onClick={() => saveJob(job)}>
               Save job
@@ -62,12 +78,14 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, s
           {savedJobs.map((job, index) => (
           <div className="job-card" key={index}>
               <div className="card-body">
-              <h3 className="card-title">{job.title}</h3>
-              <h4 className="card-text">{job.techStack}</h4>
-              <h4 className="card-text">
-                  {job.duration} | {job.value}
-              </h4>
-              <p className="job-desc">{job.description}</p>
+                <h3 className="card-title">{job.clientname}</h3>
+                <h5 className="card-text">{job.contact_number}</h5>
+                <h5 className="card-text">{job.email}</h5>
+                <h5 className="card-text">
+                £{job.pay_range} | {job.language}
+                </h5>
+                <h5>Developer: {job.dev_name}</h5>
+                <p className="job-desc">{job.job_description}</p>
               </div>
               <button className="card-btn" onClick={() => addJob(job)}>
               Apply now
@@ -89,11 +107,10 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, s
               <label htmlFor="email">Email</label>
               <input placeholder="email" />
               <label htmlFor="password">Password</label>
-              <input placeholder="password" />
-              <label htmlFor="confirm password">Confirm password</label>
               <input placeholder="confirm password" />
-              <button>Update</button>
+              <button onClick={handleUpdate}>Update Profile</button>
             </form>
+            <button>Delete Account</button>
           </div>
           <button onClick={() => setModalOpen(false)}>Close</button>
         </Modal>
@@ -102,7 +119,4 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, page, s
 </div>
 )};
         
-    
-
-
 export default JobPosts;
