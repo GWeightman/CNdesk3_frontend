@@ -57,9 +57,23 @@ export const createNewJobFetch = async (clientname, description, salary, phonenu
 }
 
 
-export const listedJobsFetch = async (setClientName) => {
+export const listedJobsFetch = async () => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}jobs`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const userFetch = async () => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
             method: "GET",
             headers: {"Content-Type": "application/json"},
         });
