@@ -29,16 +29,11 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
             <div>
                 <nav className="navbar">
                 <ul>
-                    {/* <li>
-                    <Link to="/">Back to main screen</Link>
-                    </li> */}
                     <h1 className="logo">NODE NATION: {fname} {sname} </h1>
                     <a><Link to="/">Logout</Link></a> 
                     <a><Link to="/find">Find a user</Link></a>
                     <a><Link to="/admin">Listed jobs</Link></a>
                     <a><Link to="/create">Create a new Job</Link></a>
-                    
-                    {/* <h1>Admin</h1> */}
                 </ul>
                 </nav>    
             </div>
@@ -52,13 +47,18 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                 {jobs.map((job,index) =>{
                     return(
                     <div className="jobCard" key={index}>
-                        <p><h3 className="cardTitle">Client name: </h3>{job.clientname}</p>
-                        <p><h4 className="cardText">Constact number: </h4> {job.contact_number}</p>
-                        <p><h4 className="cardText">Email: </h4> {job.email}</p>
-                        <p><h4 className="cardText">Language: </h4> {job.language}</p>
-                        <p><h4 className="cardText">Salary: </h4> £{job.pay_range}</p>
-                        <p><h4 className="cardText">About the job: </h4> {job.job_description}</p>
-                        
+                        <h3 className="cardTitle">Client name: </h3>
+                        <p className="cardTitle1">{job.clientname}</p>
+                        <h4 className="cardText">Constact number: </h4>
+                        <p className="cardText1">{job.contact_number}</p>
+                        <h4 className="cardText">Email: </h4>
+                        <p className="cardText1">{job.email}</p>
+                        <h4 className="cardText">Language: </h4>
+                        <p className="cardText1">{job.language}</p>
+                        <h4 className="cardText">Salary: </h4>
+                        <p className="cardText1">£{job.pay_range}</p>
+                        <h4 className="cardText">About the job: </h4>
+                        <p className="cardText1">{job.job_description}</p>
                     </div>
                     )})}
                 </div>  

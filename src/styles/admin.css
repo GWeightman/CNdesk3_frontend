@@ -9,17 +9,23 @@
   transition: transform 200ms ease-in;
   background-color: white;
   padding: 25px;
-  width: 30vw;
+  width: 20vw;
   display: grid;
-  grid-template-columns: auto;
-
+  grid-template-columns: auto auto;
 }
+
 .jobCard:hover {
   transform: scale(1.01);
 }
+
 .cardTitle.cardText{
   padding: 0.5rem;
-  /* display: inline-block; */
+  display: grid;
+}
+
+.cardTitle1.cardText1{
+  padding: 0.5rem;
+  display: grid;
 }
 
 .pageTitle{
@@ -31,7 +37,7 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
-  -ms-grid-column-align: center;
+  grid-column-start: left;
 }
 
 .wrapper {
