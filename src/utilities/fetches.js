@@ -73,6 +73,73 @@ export const listedJobsFetch = async () => {
     }
 }
 
+export const availableJobsFetch = async (username) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}jobs/${username}`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                dev_name: ""
+            })
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const appliedJobsFetch = async (username) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}jobs/${username}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const devnameFetch = async (username, id) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}jobs/${username}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                _id: id,
+                dev_name: username
+            })
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const removeJobsFetch = async (id) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}jobs/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                _id: id,
+                dev_name: ""
+            })
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
 export const updateUserFetch = async (username, password, email) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
