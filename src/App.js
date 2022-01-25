@@ -13,6 +13,7 @@ import ListedJobs from './components/listedJobs';
 import Create from './components/createNewJob';
 import JobPosts from './components/jobPosts';
 import Notauth from './components/notauth';
+import UserName from './components/userName';
 
 const App = () => {
   const [username, setUsername] = useState();
@@ -51,6 +52,7 @@ const App = () => {
           <Route path='admin' element={<Admin/>}/> 
           <Route path='notauth' element={<Notauth/>}/>
           <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />
+          <Route path="userName" element = {<UserName username={username} setUsername={setUsername}/>}/>
         </Routes>
       </BrowserRouter>
       

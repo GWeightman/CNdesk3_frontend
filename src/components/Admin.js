@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AboutMe from "./aboutMe";
+import UserName from "./userName";
 
 const Admin = () => {
     return (
@@ -18,7 +19,10 @@ const Admin = () => {
                     </nav>    
                 </div>
                 <div>
-                    <AboutMe/>
+                    <div><UserName/></div>
+                    
+                    <div><AboutMe/></div>
+                    
                     <button><Link to={"/create"}>Create a new job</Link></button>
                     <button><Link to={"/find"}>Find a user</Link></button>
                     <button><Link to={"/list"}>Listed jobs</Link></button>
