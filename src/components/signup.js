@@ -1,16 +1,22 @@
-import { Link } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import { signup_fetch } from "../utilities/fetches";
 
-const Signup = ({username, setUsername, password,  setPassword, fname,  setFname, sname, setSname, email, setEmail}) => {
+const Signup = ({username, setUsername, password,  setPassword, fname,  setFname, sname, setSname, email, setEmail, destination, setDestination, logged, setLogged}) => {
 
     const signin_handler = async (e) => {
         e.preventDefault();
         await signup_fetch(username, password, fname, sname, email)
-        window.location.href = "/mainpage"
+        setDestination("/mainpage")
+        setLogged(true)
+    }
+
+    const return_handler = () => {
+        window.location.href = "/"
     }
 
     return(
         <div>
+            {logged && <Navigate to={destination}/>}
             <h1>Join the Team!</h1>
             <br/>
             <form onSubmit={signin_handler}>
@@ -27,7 +33,7 @@ const Signup = ({username, setUsername, password,  setPassword, fname,  setFname
                 <br/>
                 <br/>
                 <button type='submit'>submit</button>
-                <button><Link to={"/"}>go back</Link></button>
+                <button onClick={return_handler}>go back</button>
             </form>
         </div>
     )
