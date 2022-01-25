@@ -96,7 +96,7 @@
     cursor: pointer;
   }
   
-  .navbar a {
+  .navbar li {
     display: inline-block;
     vertical-align: top;
     margin-right: 40px;
@@ -107,7 +107,7 @@
     text-align: center;
   }
   
-  .navbar a:hover {
+  .navbar li:hover {
     border-bottom: goldenrod solid 3px;
   }
   

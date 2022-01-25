@@ -1,24 +1,27 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { listedJobsFetch } from "../utilities/fetches";
+import { availableJobsFetch, devnameFetch } from "../utilities/fetches";
 import "../styles/mainPage.css";
 
-const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username, fname }) => {
+const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username, fname, sname }) => {
   
   //Retreive jobs from the backend:
   const getJobs = async () => {
-    const data = await listedJobsFetch();
+    const data = await availableJobsFetch(username);
     setJobs(data);
 
   }
   
   //Methods:
-  const addJob = (job) => {
-    setAppliedJobs([...appliedJobs, { ...job }]);
+  const addJob = async (username, id) => {
+    await devnameFetch(username, id)
+    getJobs()
+    // setAppliedJobs([...appliedJobs, { ...job }]);
   };
 
   
   const saveJob = (job) => {
+    
     setSavedJobs([...savedJobs, { ...job }]);
   };
 
@@ -35,10 +38,10 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
   return (
     <div className="wrapper">
         <nav className="navbar">
-          <h1 className="logo">NODE NATION</h1>
-            <a><Link to="/">Logout</Link></a> 
-            <a><Link to="/jobposts">Applications</Link></a>
-            <a><Link to="/mainPage">Dev-Portal</Link></a>
+          <h1 className="logo">NODE NATION: {fname} {sname}</h1>
+            <li><Link to="/">Logout</Link></li> 
+            <li><Link to="/jobposts">Applications</Link></li>
+            <li><Link to="/mainPage">Dev-Portal</Link></li>
         </nav>
         <div className="centre-section">
       <h1 className="page-title">Developer Portal</h1>
@@ -56,7 +59,7 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
             <h4>Developer: {job.dev_name}</h4>
             <p className="job-desc">{job.job_description}</p>
           </div>
-          <button className="card-btn" onClick={() => addJob(job)}>
+          <button className="card-btn" onClick={() => addJob(username, job._id)}>
             Apply now
           </button>
           <button className="card-btn" onClick={() => saveJob(job)}>

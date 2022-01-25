@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Modal from "react-modal";
-import { updateUserFetch } from "../utilities/fetches";
+import { updateUserFetch, appliedJobsFetch, removeJobsFetch } from "../utilities/fetches";
 
 const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOpen, setModalOpen, username, setUsername, email, setEmail, password, setPassword}) => {
     
@@ -18,29 +19,40 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
     */
 
     //Methods:
-    const addJob = (job) => {
-        setAppliedJobs([...appliedJobs, { ...job }]);
+    // const addJob = (job) => {
+    //     setAppliedJobs([...appliedJobs, { ...job }]);
+    // };
+
+    // const saveJob = (job) => {
+    //     setSavedJobs([...savedJobs, { ...job }]);
+    // };
+
+    const removeJob = async (id) => {
+        await removeJobsFetch(id);
+        getJobs()
     };
 
-    const saveJob = (job) => {
-        setSavedJobs([...savedJobs, { ...job }]);
-    };
+    // const removeSavedJob = (jobToRemove) => {
+    //     setSavedJobs(savedJobs.filter((job) => job !== jobToRemove));
+    // };
 
-    const removeJob = (jobToRemove) => {
-        setAppliedJobs(appliedJobs.filter((job) => job !== jobToRemove));
-    };
+    const getJobs = async () => {
+        const data = await appliedJobsFetch(username);
+        setAppliedJobs(data);
+    
+    }
 
-    const removeSavedJob = (jobToRemove) => {
-        setSavedJobs(savedJobs.filter((job) => job !== jobToRemove));
-    };
+    useEffect(() => {
+        getJobs();
+      }, [])
 
     return (
         <div className="wrapper">
             <nav className="navbar">
                 <h1 className="logo">NODE NATION</h1>
-                <a><Link to="/">Logout</Link></a> 
-                <a><Link to="/jobposts">Applications</Link></a>
-                <a><Link to="/mainPage">Dev-Portal</Link></a>
+                <li><Link to="/">Logout</Link></li> 
+                <li><Link to="/jobposts">Applications</Link></li>
+                <li><Link to="/mainPage">Dev-Portal</Link></li>
             </nav>       
             <div className="centre-section">
       <h1 className="page-title">Jobs Portal</h1>
@@ -58,11 +70,11 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
                 <h4>Developer: {job.dev_name}</h4>
                 <p className="job-desc">{job.job_description}</p>
               </div>
-              <button className="card-btn" onClick={() => saveJob(job)}>
+              {/* {<button className="card-btn" onClick={() => saveJob(job)}>
               Save job
-              </button>
-              <button className="card-btn" onClick={() => removeJob(job)}>
-              Remove
+              </button> */}
+              <button className="card-btn" onClick={() => removeJob(job._id)}>
+              Remove Job
               </button>
           </div>
           ))}
@@ -81,12 +93,12 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
                 <h4>Developer: {job.dev_name}</h4>
                 <p className="job-desc">{job.job_description}</p>
               </div>
-              <button className="card-btn" onClick={() => addJob(job)}>
+              {/* <button className="card-btn" onClick={() => addJob(job)}>
               Apply now
               </button>
               <button className="card-btn" onClick={() => removeSavedJob(job)}>
               Remove
-              </button>
+              </button> */}
           </div>
           ))}
       </div>
