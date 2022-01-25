@@ -47,7 +47,8 @@ export const createNewJobFetch = async (clientname, description, salary, phonenu
                 email: email,
                 language: language,
                 pay_range: salary,
-                job_description: description     
+                job_description: description,
+                dev_name: ""     
             }),
         });
         const data = await response.json();
