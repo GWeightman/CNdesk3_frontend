@@ -1,0 +1,22 @@
+.createForm{
+    margin-top: 100px;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto;
+
+}
+.submit{
+    margin-top: 10px;
+}
+.back{
+margin-top: 10px;
+background-color: #396eb0;
+  padding: 15px 32px;
+  
+  
+  
+}
+.back:hover{
+    color: #396eb0;
+    background-color: rgb(236, 205, 26);
+}

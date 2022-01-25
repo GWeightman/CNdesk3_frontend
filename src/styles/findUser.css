@@ -1,0 +1,11 @@
+.findList{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: auto;
+    align-content: center;
+}
+
+.title{
+    display: grid;
+    grid-template-columns: auto;
+}

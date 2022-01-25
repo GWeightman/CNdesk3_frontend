@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { listedJobsFetch } from "../utilities/fetches";
 
-const ListedJobs = ({clientname, description, salary, phonenumber, email, jobs, setJobs}) => {
+const ListedJobs = ({jobs, setJobs, fname, sname}) => {
   
   const getJobs = async() =>{
     const data = await listedJobsFetch()
@@ -11,6 +12,7 @@ const ListedJobs = ({clientname, description, salary, phonenumber, email, jobs, 
   useEffect(() =>{
     getJobs()
   },[])
+
   if (!jobs){
     console.log(null)
     return null
@@ -20,6 +22,17 @@ const ListedJobs = ({clientname, description, salary, phonenumber, email, jobs, 
   }
   return(
       <div>
+        <div>
+                <nav className="navbar">
+                <ul>
+                    <h1 className="logo">NODE NATION: {fname} {sname} </h1>
+                    <a><Link to="/">Logout</Link></a> 
+                    <a><Link to="/find">Find a user</Link></a>
+                    <a><Link to="/admin">Listed jobs</Link></a>
+                    <a><Link to="/create">Create a new Job</Link></a>
+                </ul>
+                </nav>    
+            </div>
         <h1>Here you can find all the listed jobs</h1>
         <br/>
         <div>  
