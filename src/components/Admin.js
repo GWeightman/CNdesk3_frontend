@@ -28,13 +28,13 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
         <div className="wrapper"> 
             <div>
                 <nav className="navbar">
-                <ul>
+                
                     <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                    <a><Link to="/">Logout</Link></a> 
-                    <a><Link to="/find">Find a user</Link></a>
-                    <a><Link to="/admin">Listed jobs</Link></a>
-                    <a><Link to="/create">Create a new Job</Link></a>
-                </ul>
+                    <li><Link to="/">Logout</Link></li> 
+                    <li><Link to="/find">Find a user</Link></li>
+                    <li><Link to="/admin">Listed jobs</Link></li>
+                    <li><Link to="/create">Create a new Job</Link></li>
+                
                 </nav>    
             </div>
             <div>
