@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { createNewJobFetch } from "../utilities/fetches";
 import "../styles/createNewJob.css"
 
@@ -8,27 +8,25 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
   const createJobHandler = async (e) => {
     e.preventDefault();
     await createNewJobFetch(clientname, description, salary, phonenumber, clientemail, language)
+    alert('You have submitted the form.')
   }
 
   const returnHandler = () => {
     window.location.href = "/admin"
   }
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    alert('You have submitted the form.')
-  }   
+    
         return(
             <div>
               <div>
                 <nav className="navbar">
-                <ul>
+                
                     <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                    <a><Link to="/">Logout</Link></a> 
-                    <a><Link to="/find">Find a user</Link></a>
-                    <a><Link to="/admin">Listed jobs</Link></a>
-                    <a><Link to="/create">Create a new Job</Link></a>
-                </ul>
+                    <li><Link to="/">Logout</Link></li> 
+                    <li><Link to="/find">Find a user</Link></li>
+                    <li><Link to="/admin">Listed jobs</Link></li>
+                    <li><Link to="/create">Create a new Job</Link></li>
+                
                 </nav>    
               </div>
               <div className="createForm">
@@ -47,12 +45,12 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
                   <p>Job description</p>
                   <input onChange = {(e) => setDescription(e.target.value)} placeholder = 'description' />
                   <div>
-                  <button className="submit" onClick={handleSubmit} type="submit">Submit</button>
-                  </div>
-                  <div>
-                  <button className="back" onClick={returnHandler}>Go back to homepage</button>
+                  <button className="submit" onClick={createJobHandler} type="submit">Submit</button>
                   </div>
                 </form>
+                <div>
+                  <button className="back"><Link to="/admin">Go back to homepage</Link></button>
+                </div>
               </div>
           </div>
         )
