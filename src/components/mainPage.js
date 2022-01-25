@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { listedJobsFetch } from "../utilities/fetches";
+import "../styles/mainPage.css";
 
 const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username, fname }) => {
   console.log(username || "null")
@@ -35,33 +36,26 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
 
   return (
     <div className="wrapper">
-        <div className="navbar">
-            <nav className="navbar">
-              <ul>
-                  <li>
-                  <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                  <Link to="/jobposts">Applications</Link>
-                  </li>
-              </ul>
-            </nav>
-        </div>
+        <nav className="navbar">
+          <h1 className="logo">NODE NATION</h1>
+            <a><Link to="/">Logout</Link></a> 
+            <a><Link to="/jobposts">Applications</Link></a>
+            <a><Link to="/mainPage">Dev-Portal</Link></a>
+        </nav>
         <div className="centre-section">
-      <h1>{fname} : Developer Portal</h1>
+      <h1 className="page-title">Developer Portal</h1>
       
-
       {jobs.map((job, index) => {
         return(
         <div className="job-card" key={index}>
           <div className="card-body">
             <h3 className="card-title">{job.clientname}</h3>
-            <h5 className="card-text">{job.contact_number}</h5>
-            <h5 className="card-text">{job.email}</h5>
-            <h5 className="card-text">
+            <h4 className="card-text">{job.contact_number}</h4>
+            <h4 className="card-text">{job.email}</h4>
+            <h4 className="card-text">
               £{job.pay_range} | {job.language}
-            </h5>
-            <h5>Developer: {job.dev_name}</h5>
+            </h4>
+            <h4>Developer: {job.dev_name}</h4>
             <p className="job-desc">{job.job_description}</p>
           </div>
           <button className="card-btn" onClick={() => addJob(job)}>
