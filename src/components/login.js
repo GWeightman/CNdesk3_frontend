@@ -1,21 +1,24 @@
+import { Navigate } from "react-router-dom";
 import { login_fetch } from "../utilities/fetches";
 
-const Login = ({username, setUsername, password, setPassword, fname, setFname}) => {
-
+const Login = ({username, setUsername, password, setPassword, setFname, destination, setDestination, logged, setLogged, setSname}) => {
+    
     const login_handler = async (e) => {
         try {
             e.preventDefault();
             const ret_val = await login_fetch(username, password)
             setFname(ret_val.firstname)
+            setSname(ret_val.surname)
             if (ret_val === "NoAuth") {
-                window.location.href = "/notauth"                
+                setDestination("/notauth")                
             } else if (ret_val.status === "admin") {
-                window.location.href = "/admin"
+                setDestination("/admin")
             } else if (ret_val.status === "dev") {
-                window.location.href = "/mainpage"
+                setDestination("/mainpage")
             } else {
-                window.location.href = "/notauth"
+                setDestination("/notauth")
             }
+            setLogged(true)
         } catch (error) {
             window.location.href = "/notauth"
             console.log(error)
@@ -32,7 +35,8 @@ const Login = ({username, setUsername, password, setPassword, fname, setFname}) 
 
     return(
         <div>
-            <h1>Awesome Company</h1>
+            {logged && <Navigate to={destination} />}
+            <h1>Node Nation</h1>
             <br/>
             <form onSubmit={login_handler}>
                 Username:<br/>                

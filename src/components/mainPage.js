@@ -4,8 +4,6 @@ import { listedJobsFetch } from "../utilities/fetches";
 import "../styles/mainPage.css";
 
 const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username, fname }) => {
-  console.log(username || "null")
-  console.log(fname || "null")
   
   //Retreive jobs from the backend:
   const getJobs = async () => {
