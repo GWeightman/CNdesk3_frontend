@@ -50,7 +50,7 @@ const App = () => {
           <Route path="create" element={<Create clientname={clientname} setClientName={setClientName} description={description} setDescription={setDescription} salary={salary} setSalary={setSalary} phonenumber={phonenumber} setPhoneNumber={setPhoneNumber} clientemail={clientemail} setclientEmail={setclientEmail} language={language} setLanguage={setLanguage}/>}/>
           <Route path="list" element={<ListedJobs clientname={clientname} description={description} salary={salary} phonenumber={phonenumber} clientemail={clientemail} jobs={jobs} setJobs={setJobs}/>}/> 
           <Route path="find" element={<FindUser username={username} setUsername={setUsername} admin={admin} setAdmin={setAdmin} dev={dev} setDev = {setDev} />}/>
-          <Route path='admin' element={<Admin/>}/> 
+          <Route path='admin' element={<Admin jobs={jobs} setJobs={setJobs}/>}/> 
           <Route path='notauth' element={<Notauth/>}/>
           <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} page={page} setPage={setPage} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />
           <Route path="userName" element = {<UserName username={username} setUsername={setUsername}/>}/>
