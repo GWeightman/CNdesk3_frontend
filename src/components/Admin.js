@@ -32,7 +32,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                     {/* <li>
                     <Link to="/">Back to main screen</Link>
                     </li> */}
-                    <h1 className="logo">NODE NATION</h1>
+                    <h1 className="logo">NODE NATION: {fname} {sname} </h1>
                     <a><Link to="/">Logout</Link></a> 
                     <a><Link to="/find">Find a user</Link></a>
                     <a><Link to="/admin">Listed jobs</Link></a>
@@ -47,7 +47,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                 
                 <h1 className="pageTitle">Welcome to your admin portal</h1>
                 <h2 className="pageTitle">Here you can find all the listed jobs</h2>
-                <a>admin:{fname} {sname}</a>
+                
                 <div className="jobCards">
                 {jobs.map((job,index) =>{
                     return(
