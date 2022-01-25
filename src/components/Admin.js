@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { listedJobsFetch } from "../utilities/fetches";
 import "../styles/admin.css"
 
-const Admin = ({jobs, setJobs}) => {
+const Admin = ({jobs, setJobs, fname, sname}) => {
     const getJobs = async() =>{
         const data = await listedJobsFetch()
         setJobs(data)  
@@ -37,15 +37,17 @@ const Admin = ({jobs, setJobs}) => {
                     <a><Link to="/find">Find a user</Link></a>
                     <a><Link to="/admin">Listed jobs</Link></a>
                     <a><Link to="/create">Create a new Job</Link></a>
-                    <h1>Admin</h1>
+                    
+                    {/* <h1>Admin</h1> */}
                 </ul>
                 </nav>    
             </div>
             <div>
                 {/* <h1>Admin p</h1> */}
-                <div><UserName/></div>
+                
                 <h1 className="pageTitle">Welcome to your admin portal</h1>
                 <h2 className="pageTitle">Here you can find all the listed jobs</h2>
+                <a>admin:{fname} {sname}</a>
                 <div className="jobCards">
                 {jobs.map((job,index) =>{
                     return(
