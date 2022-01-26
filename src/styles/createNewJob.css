@@ -5,18 +5,39 @@
     grid-template-columns: auto;
 
 }
+
 .submit{
     margin-top: 10px;
+    background-image: linear-gradient(144deg,rgb(9, 115, 202), rgb(236, 205, 26));
+    border: 2px solid rgb(236, 205, 26);
+    border-radius: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: black;
+    display: inline-block;
 }
+
+.submit:hover{
+    background-image: linear-gradient(144deg,rgb(236, 205, 26), rgb(9, 115, 202));
+    border: 2px solid rgb(9, 115, 202);
+}
+
 .back{
-margin-top: 10px;
-background-color: #396eb0;
-  padding: 15px 32px;
-  
-  
-  
+    margin-top: 10px;
+    background-color: rgb(9, 115, 202);
+    color: rgb(236, 205, 26);
+    border: 2px solid rgb(236, 205, 26);
+    border-radius: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: black;
+    display: inline-block;
 }
+
 .back:hover{
-    color: #396eb0;
     background-color: rgb(236, 205, 26);
+    color:rgb(9, 115, 202);
+    border: 2px solid rgb(9, 115, 202);;
 }
