@@ -49,7 +49,6 @@ const ListedJobs = ({jobs, setJobs, fname, sname}) => {
               </div>
             )})}
         </div>
-        <button onClick={returnHandler}>Go back to homepage</button>
       </div>      
   )
 }
