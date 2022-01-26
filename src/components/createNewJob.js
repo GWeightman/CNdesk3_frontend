@@ -47,7 +47,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
             </div>
           </form>
           <div>
-            <a className='back' onClick={returnHandler}>Go back to homepage</a>
+            <button className='back' onClick={returnHandler}>Go back to homepage</button>
           </div>
         </div>
     </div>
