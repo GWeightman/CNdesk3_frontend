@@ -17,9 +17,7 @@ const ListedJobs = ({jobs, setJobs, fname, sname}) => {
     console.log(null)
     return null
   }
-  const returnHandler = () => {
-    window.location.href = "/admin"
-  }
+  
   return(
       <div>
         <div>
