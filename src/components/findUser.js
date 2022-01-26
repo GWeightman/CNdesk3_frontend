@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { adminFetch, developerFetch } from "../utilities/fetches";
 import "../styles/findUser.css"
+import "../styles/createNewJob.css"
 
 const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
     
@@ -30,10 +31,10 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                 <nav className="navbar">
                 <ul>
                     <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                    <a><Link to="/">Logout</Link></a> 
-                    <a><Link to="/find">Find a user</Link></a>
-                    <a><Link to="/admin">Listed jobs</Link></a>
-                    <a><Link to="/create">Create a new Job</Link></a>
+                    <li><a className="navButton" href="/">Logout</a></li> 
+                    <li><a className="navButton" href="/find">Find a user</a></li>
+                    <li><a className="navButton" href="/admin">Listed jobs</a></li>
+                    <li><a className="navButton" href="/create">Create a new Job</a></li>
                 </ul>
                 </nav>    
             </div>
@@ -62,7 +63,7 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                     </div>
                 )})}
                 <div> 
-                    <button className="back" onClick={returnHandler}>Go back to homepage</button>
+                    <a className="back" onClick={returnHandler}>Go back to homepage</a>
                 </div>
             </div>
             
@@ -70,11 +71,5 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
     )
         
 }
-{/* {username.map((users,index) =>{
-            return(
-              <div key={index}>
-            <p>{users.username}</p>
-            <br/>
-            </div>
-        )})} */}
+
 export default FindUser;
