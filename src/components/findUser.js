@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { adminFetch, developerFetch } from "../utilities/fetches";
 import "../styles/findUser.css"
 import "../styles/createNewJob.css"
@@ -31,10 +31,10 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                 <nav className="navbar">
                 <ul>
                     <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                    <li><a className="navButton" href="/">Logout</a></li> 
-                    <li><a className="navButton" href="/find">Find a user</a></li>
-                    <li><a className="navButton" href="/admin">Listed jobs</a></li>
-                    <li><a className="navButton" href="/create">Create a new Job</a></li>
+                    <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+                    <li><NavLink to="/find" className="navButton">Find a user</NavLink></li>
+                    <li><NavLink to="/admin" className="navButton">Listed jobs</NavLink></li>
+                    <li><NavLink to="/create" className="navButton">Create a new Job</NavLink></li>
                 </ul>
                 </nav>    
             </div>
@@ -63,7 +63,7 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                     </div>
                 )})}
                 <div> 
-                    <a className="back" onClick={returnHandler}>Go back to homepage</a>
+                    <NavLink to="/admin" className="back">Go back to homepage</NavLink>
                 </div>
             </div>
             
