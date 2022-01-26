@@ -25,8 +25,6 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
         return null
       }
 
-      
-
     return (
         <div className="wrapper"> 
             <div>
@@ -39,8 +37,6 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                 </nav>    
             </div>
             <div>
-                {/* <h1>Admin p</h1> */}
-                
                 <h1 className="pageTitle">Welcome to your admin portal</h1>
                 <h2 className="pageTitle">Here you can find all the listed jobs</h2>
                 
