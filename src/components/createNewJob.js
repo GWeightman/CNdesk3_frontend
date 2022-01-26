@@ -47,7 +47,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
             </div>
           </form>
           <div>
-            <button className='back' onClick={returnHandler}>Go back to homepage</button>
+            <NavLink to="/admin" className="back">Go back to homepage</NavLink>
           </div>
         </div>
     </div>
