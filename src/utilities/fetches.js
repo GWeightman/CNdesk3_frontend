@@ -214,3 +214,20 @@ export const developerFetch = async () => {
         console.log(error);
     }
 }
+
+export const deleteFetch = async (id) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}jobs`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                _id: id,
+            })
+        });
+        const data = await response.json();
+        // console.log(data);        
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}

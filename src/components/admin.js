@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import AboutMe from "./aboutMe";
 import UserName from "./userName";
 import { useEffect } from "react";
-import { listedJobsFetch } from "../utilities/fetches";
+import { listedJobsFetch, deleteFetch } from "../utilities/fetches";
 import "../styles/admin.css"
 
 const Admin = ({jobs, setJobs, fname, sname}) => {
@@ -11,6 +11,11 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
         setJobs(data)  
       }
          
+      const deleteHandler = async (id) => {
+        await deleteFetch(id)
+        getJobs()
+      }
+      
       useEffect(() =>{
         getJobs()
       },[])
@@ -20,9 +25,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
         return null
       }
 
-      const returnHandler = () => {
-        window.location.href = "/admin"
-      }
+      
 
     return (
         <div className="wrapper"> 
@@ -57,6 +60,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                         <p className="cardText1">£{job.pay_range}</p>
                         <h4 className="cardText">About the job: </h4>
                         <p className="cardText1">{job.job_description}</p>
+                        <button onClick={() => deleteHandler(job._id)}>Delete Job</button>
                     </div>
                     )})}
                 </div>  
