@@ -21,10 +21,10 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
         <div>
           <nav className="navbar">
               <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-              <li><a className="navButton" href="/">Logout</a></li> 
-              <li><a className="navButton" href="/find">Find a user</a></li>
-              <li><a className="navButton" href="/admin">Listed jobs</a></li>
-              <li><a className="navButton" href="/create">Create a new Job</a></li>
+              <li><Link className="navButton" to="/">Logout</Link></li> 
+              <li><Link className="navButton" to="/find">Find a user</Link></li>
+              <li><Link className="navButton" to="/admin">Listed jobs</Link></li>
+              <li><Link className="navButton" to="/create">Create a new Job</Link></li>
           </nav>
         </div>
         <div className="createForm">
