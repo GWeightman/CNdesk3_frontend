@@ -92,6 +92,7 @@ body {
   overflow: hidden;
   box-shadow: 0 0 15px black;
   z-index: 10;
+  
 }
 
 .logo {
@@ -99,8 +100,9 @@ body {
   vertical-align: top;
   margin-left: -40%;
   margin-top: 5px;
-  color: gold;
+  color: rgb(236, 205, 26);
   cursor: pointer;
+  padding-left: 100px;
 }
 
 .navbar li {
