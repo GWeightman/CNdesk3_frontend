@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { availableJobsFetch, devnameFetch } from "../utilities/fetches";
 import "../styles/mainPage.css";
+import "../styles/admin.css";
+
 
 const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, setJobs, username, fname, sname }) => {
   
@@ -19,12 +21,6 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
     // setAppliedJobs([...appliedJobs, { ...job }]);
   };
 
-  
-  const saveJob = (job) => {
-    
-    setSavedJobs([...savedJobs, { ...job }]);
-  };
-
   useEffect(() => {
     getJobs();
   }, [])
@@ -34,14 +30,13 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
     return null;
   }
   
-
   return (
     <div className="wrapper">
         <nav className="navbar">
-          <h1 className="logo">NODE NATION: {fname} {sname}</h1>
-            <li><Link to="/">Logout</Link></li> 
-            <li><Link to="/jobposts">Applications</Link></li>
-            <li><Link to="/mainPage">Dev-Portal</Link></li>
+        <h1 className="logo">NODE NATION: {fname} {sname} </h1>
+          <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+          <li><NavLink to="/jobPosts" className="navButton">Applications</NavLink></li>
+          <li><NavLink to="/mainPage" className="navButton">Dev-Portal</NavLink></li>
         </nav>
         <div className="centre-section">
       <h1 className="page-title">Developer Portal</h1>
@@ -61,9 +56,6 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
           </div>
           <button className="card-btn" onClick={() => addJob(username, job._id)}>
             Apply now
-          </button>
-          <button className="card-btn" onClick={() => saveJob(job)}>
-            Save job
           </button>
         </div>
       )})}

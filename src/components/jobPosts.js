@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import Modal from "react-modal";
 import { updateUserFetch, appliedJobsFetch, removeJobsFetch } from "../utilities/fetches";
 import "../styles/jobPosts.css";
+import "../styles/admin.css";
 
-const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOpen, setModalOpen, username, setUsername, email, setEmail, password, setPassword}) => {
+
+const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOpen, setModalOpen, username, setUsername, email, setEmail, password, setPassword, fname, sname}) => {
     
     const handleUpdate = async (username, email, password) => {
         const data = await updateUserFetch();
@@ -33,14 +35,9 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
         getJobs()
     };
 
-    // const removeSavedJob = (jobToRemove) => {
-    //     setSavedJobs(savedJobs.filter((job) => job !== jobToRemove));
-    // };
-
     const getJobs = async () => {
         const data = await appliedJobsFetch(username);
-        setAppliedJobs(data);
-    
+        setAppliedJobs(data);    
     }
 
     useEffect(() => {
@@ -50,10 +47,11 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
     return (
         <div className="wrapper">
             <nav className="navbar">
-                <h1 className="logo">NODE NATION</h1>
-                <li><Link to="/">Logout</Link></li> 
-                <li><Link to="/jobposts">Applications</Link></li>
-                <li><Link to="/mainPage">Dev-Portal</Link></li>
+                {/* <h1><img className="logo-img" src="logo192.png" width="35" height="35"/>NodeNation</h1>                */}
+                <h1 className="logo">NODE NATION: {fname} {sname} </h1>
+                  <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+                  <li><NavLink to="/jobPosts" className="navButton">Applications</NavLink></li>
+                  <li><NavLink to="/mainPage" className="navButton">Dev-Portal</NavLink></li>
             </nav>       
 
             <div className="centre-section">
@@ -72,9 +70,6 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
                     <h4>Developer: {job.dev_name}</h4>
                     <p className="job-desc">{job.job_description}</p>
                   </div>
-                  {/* {<button className="card-btn" onClick={() => saveJob(job)}>
-                  Save job
-                  </button> */}
                   <button className="card-btn" onClick={() => removeJob(job._id)}>
                   Remove Job
                   </button>

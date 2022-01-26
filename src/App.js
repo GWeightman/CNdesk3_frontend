@@ -53,7 +53,7 @@ const App = () => {
           <Route path="find" element={<FindUser username={username} setUsername={setUsername} admin={admin} setAdmin={setAdmin} dev={dev} setDev = {setDev} />}/>
           <Route path='admin' element={<Admin jobs={jobs} setJobs={setJobs} fname={fname} setFname={setFname} sname={sname} setSname={setSname}/>}/> 
           <Route path='notauth' element={<Notauth/>}/>
-          <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} username={username} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs}/>} />
+          <Route path="jobposts" element = {<JobPosts appliedJobs={appliedJobs} setAppliedJobs={setAppliedJobs} savedJobs={savedJobs} setSavedJobs={setSavedJobs} username={username} modalOpen={modalOpen} setModalOpen={setModalOpen} jobs={jobs} setJobs={setJobs} fname={fname} sname={sname} username={username}/>}/>
           <Route path="userName" element = {<UserName username={username} setUsername={setUsername}/>}/>
         </Routes>
       </BrowserRouter>
