@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, NavLink } from 'react-router-dom';
 import { createNewJobFetch } from "../utilities/fetches";
 import "../styles/createNewJob.css"
 import "../styles/findUser.css"
@@ -21,10 +21,10 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
         <div>
           <nav className="navbar">
               <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-              <li><Link to="/" className="navButton">Logout</Link></li> 
-              <li><Link to="/find" className="navButton">Find a user</Link></li>
-              <li><Link to="/admin" className="navButton">Listed jobs</Link></li>
-              <li><Link to="/create" className="navButton">Create a new Job</Link></li>
+              <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+              <li><NavLink to="/find" className="navButton">Find a user</NavLink></li>
+              <li><NavLink to="/admin" className="navButton">Listed jobs</NavLink></li>
+              <li><NavLink to="/create" className="navButton">Create a new Job</NavLink></li>
           </nav>
         </div>
         <div className="createForm">
