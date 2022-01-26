@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { listedJobsFetch } from "../utilities/fetches";
 
 const ListedJobs = ({jobs, setJobs, fname, sname}) => {
@@ -25,11 +25,11 @@ const ListedJobs = ({jobs, setJobs, fname, sname}) => {
         <div>
                 <nav className="navbar">
                 <ul>
-                    <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                    <a><Link to="/">Logout</Link></a> 
-                    <a><Link to="/find">Find a user</Link></a>
-                    <a><Link to="/admin">Listed jobs</Link></a>
-                    <a><Link to="/create">Create a new Job</Link></a>
+                  <h1 className="logo">NODE NATION: {fname} {sname} </h1>
+                  <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+                  <li><NavLink to="/find" className="navButton">Find a user</NavLink></li>
+                  <li><NavLink to="/admin" className="navButton">Listed jobs</NavLink></li>
+                  <li><NavLink to="/create" className="navButton">Create a new Job</NavLink></li>
                 </ul>
                 </nav>    
             </div>

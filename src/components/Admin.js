@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AboutMe from "./aboutMe";
 import UserName from "./userName";
 import { useEffect } from "react";
@@ -29,10 +29,10 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
             <div>
                 <nav className="navbar">
                   <h1 className="logo">NODE NATION: {fname} {sname} </h1>
-                  <li><a className="navButton" href="/">Logout</a></li> 
-                  <li><a className="navButton" href="/find">Find a user</a></li>
-                  <li><a className="navButton" href="/admin">Listed jobs</a></li>
-                  <li><a className="navButton" href="/create">Create a new Job</a></li>
+                  <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
+                  <li><NavLink to="/find" className="navButton">Find a user</NavLink></li>
+                  <li><NavLink to="/admin" className="navButton">Listed jobs</NavLink></li>
+                  <li><NavLink to="/create" className="navButton">Create a new Job</NavLink></li>
                 </nav>    
             </div>
             <div>
