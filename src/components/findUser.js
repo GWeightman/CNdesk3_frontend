@@ -5,7 +5,7 @@ import "../styles/findUser.css"
 import "../styles/createNewJob.css"
 
 const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
-    
+
     const getAdmins = async() =>{
         const data = await adminFetch()
         setAdmin(data)  
@@ -15,7 +15,7 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
         const data = await developerFetch()
         setDev(data)
     }
-    
+
     useEffect(() =>{
         getAdmins()
         getDev()
@@ -39,37 +39,36 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                 </nav>    
             </div>
             <div className="findList">
-            <h1 className="title">Admins</h1>
-            {admin.map((users,index) =>{
-                return(
-                    <div className="jobCard" key={index}>
-                        <h3> Username: </h3>
-                        <p>{users.username}</p>
-                        <h3>Email: </h3>
-                        <p>{users.email}</p>
-                        <br/>
-                    </div>
-                )})}
-            <br/>
-            <h1 className="title">Developers</h1>
-            {dev.map((users,index) =>{
-                return(
-                    <div className="jobCard" key={index}>
-                        <h3> Username: </h3>
-                        <p>{users.username}</p>
-                        <h3>Email: </h3>
-                        <p>{users.email}</p>
-                        <br/>
-                    </div>
-                )})}
-                <div> 
+                <h1 className="title">Admins</h1>
+                <br/>
+                {admin.map((users,index) =>{
+                    return(
+                        <div className="jobCard" key={index}>
+                            <h3> Username: </h3>
+                            <p>{users.username}</p>
+                            <h3>Email: </h3>
+                            <p>{users.email}</p>
+                            <br/>
+                        </div>
+                    )})}
+                <h1 className="title">Developers</h1>
+                {dev.map((users,index) =>{
+                    return(
+                        <div className="jobCard" key={index}>
+                            <h3> Username: </h3>
+                            <p>{users.username}</p>
+                            <h3>Email: </h3>
+                            <p>{users.email}</p>
+                            <br/>
+                        </div>
+                    )})}
+                    <div> 
                     <NavLink to="/admin" className="back">Go back to homepage</NavLink>
-                </div>
+                    </div>
             </div>
             
         </div>       
-    )
-        
+    )   
 }
 
 export default FindUser;
