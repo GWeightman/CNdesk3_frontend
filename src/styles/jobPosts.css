@@ -126,12 +126,13 @@ body {
   margin-left: 16%;
   margin-top: 5%;
   width: 60vw;
-  height: 60vh;
+  height: 62vh;
   border-radius: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
   justify-content: center;
+  line-height: 30px;
 }
 
 .update-form {
@@ -157,10 +158,18 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background 200ms ease-in, color 200ms ease-in;
-  width: 200px;
+  width: 400px;
+  margin-top: 20px;
 }
 
-.settings-btn {
+.update-btn:hover {
+  background: dodgerblue;
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  margin-left: 24.3%;
   padding: 0.3rem;
   font-family: inherit;
   font-weight: bold;
@@ -171,8 +180,44 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background 200ms ease-in, color 200ms ease-in;
-  display: block;
+  width: 400px;
+}
+
+.close-btn:hover {
+  background: dodgerblue;
+  color: white;
+}
+
+/*Setting section*/
+.settings-section {
+  position: relative;
+  width: 800px;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+  text-align: center;
+  padding: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.settings-btn {
+  padding: 0.3rem;
+  margin-top: 30px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid dodgerblue;
+  background: transparent;
+  color: dodgerblue;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 200ms ease-in, color 200ms ease-in;
   width: 200px;
+}
+
+.settings-btn:hover {
+  background: dodgerblue;
+  color: white;
 }
 
 input {

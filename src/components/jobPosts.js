@@ -15,12 +15,6 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
         setPassword(data.password);
     };
 
-    /*
-    const handleDelete = async () => {
-        await deleteUserFetch();
-    }
-    */
-
     //Methods:
     // const addJob = (job) => {
     //     setAppliedJobs([...appliedJobs, { ...job }]);
@@ -102,7 +96,7 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
           ))}
       </div> */}
       
-      <div className="settings">
+      <div className="settings-section">
       <h2>Profile Settings</h2>
       <button className="settings-btn" onClick={() => setModalOpen(true)}>Settings</button>
       <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
@@ -118,8 +112,7 @@ const JobPosts = ({appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, modalOp
               <button className="update-btn" onClick={handleUpdate}>Update Profile</button>
             </form>
             <div className="delete-section">
-              <button className="settings-btn" >Delete Account</button>
-              <button className="settings-btn" onClick={() => setModalOpen(false)}>Close</button>
+              <button className="close-btn" onClick={() => setModalOpen(false)}>Close</button>
             </div>
           </div> 
       </Modal>
