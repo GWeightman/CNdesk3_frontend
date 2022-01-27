@@ -33,7 +33,7 @@ const MainPage = ({ appliedJobs, setAppliedJobs, savedJobs, setSavedJobs, jobs, 
   return (
     <div className="wrapper">
         <nav className="navbar">
-        <h1 className="logo">NODE NATION: {fname} {sname} </h1>
+        <h1 className="logo" >NODE NATION: {fname} {sname} </h1>
           <li><NavLink to="/" className="navButton">Logout</NavLink></li> 
           <li><NavLink to="/jobPosts" className="navButton">Applications</NavLink></li>
           <li><NavLink to="/mainPage" className="navButton">Dev-Portal</NavLink></li>

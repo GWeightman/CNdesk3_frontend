@@ -44,9 +44,9 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                 {admin.map((users,index) =>{
                     return(
                         <div className="jobCard" key={index}>
-                            <h3> Username: </h3>
+                            <h4> Username: </h4>
                             <p>{users.username}</p>
-                            <h3>Email: </h3>
+                            <h4>Email: </h4>
                             <p>{users.email}</p>
                             <br/>
                         </div>
@@ -55,9 +55,9 @@ const FindUser = ({dev, setDev, admin, setAdmin, fname, sname}) => {
                 {dev.map((users,index) =>{
                     return(
                         <div className="jobCard" key={index}>
-                            <h3> Username: </h3>
+                            <h4> Username: </h4>
                             <p>{users.username}</p>
-                            <h3>Email: </h3>
+                            <h4>Email: </h4>
                             <p>{users.email}</p>
                             <br/>
                         </div>

@@ -8,6 +8,10 @@
 .title{
     display: grid;
     grid-template-columns: auto;
+    color: rgb(236, 205, 26) ;
+    text-shadow: 0px 5px 5px black;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .navButton{

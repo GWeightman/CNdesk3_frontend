@@ -44,17 +44,17 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                 {jobs.map((job,index) =>{
                     return(
                     <div className="jobCard" key={index}>
-                        <h3 className="cardTitle">Client name: </h3>
+                        <h4 className="cardTitle">Client name: </h4>
                         <p className="cardTitle1">{job.clientname}</p>
-                        <h4 className="cardText">Constact number: </h4>
+                        <h5 className="cardText">Constact number: </h5>
                         <p className="cardText1">{job.contact_number}</p>
-                        <h4 className="cardText">Email: </h4>
+                        <h5 className="cardText">Email: </h5>
                         <p className="cardText1">{job.email}</p>
-                        <h4 className="cardText">Language: </h4>
+                        <h5 className="cardText">Language: </h5>
                         <p className="cardText1">{job.language}</p>
-                        <h4 className="cardText">Salary: </h4>
+                        <h5 className="cardText">Salary: </h5>
                         <p className="cardText1">£{job.pay_range}</p>
-                        <h4 className="cardText">About the job: </h4>
+                        <h5 className="cardText">About the job: </h5>
                         <p className="cardText1">{job.job_description}</p>
                         <button onClick={() => deleteHandler(job._id)}>Delete Job</button>
                     </div>
