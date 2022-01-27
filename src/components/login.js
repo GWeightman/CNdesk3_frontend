@@ -1,5 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { login_fetch } from "../utilities/fetches";
+import network from "../images/network.jpg";
+
 
 const Login = ({username, setUsername, password, setPassword, setFname, destination, setDestination, logged, setLogged, setSname}) => {
     
@@ -36,20 +38,30 @@ const Login = ({username, setUsername, password, setPassword, setFname, destinat
     return(
         <div>
             {logged && <Navigate to={destination} />}
-            <h1>Node Nation</h1>
-            <br/>
-            <form onSubmit={login_handler}>
-                Username:<br/>                
-                <input onChange={(e) => setUsername(e.target.value)} placeholder='username'/>
-                <br/>
-                Password:<br/>
-                <input onChange={(e) => setPassword(e.target.value)} placeholder='password'/>
-                <br/>
-                <br/>
-                <input type='submit' value="Submit"/>
-            </form>
-            <button onClick={signup_button}>Sign Up</button>
-            <button onClick={return_button}>Go Back</button>
+            <div class="home-wrapper" style={{ backgroundImage: `url(${network})` }}>
+                <header>
+                    <div class="logo-area">
+                        <h1 class="logo-title">NODE NATION</h1>
+                    </div>
+                </header>
+                    <div className="login-section">
+                    <form onSubmit={login_handler}>
+                        Username:<br/>                
+                        <input onChange={(e) => setUsername(e.target.value)} placeholder='username'/>
+                        <br/>
+                        Password:<br/>
+                        <input onChange={(e) => setPassword(e.target.value)} placeholder='password' type='password' />
+                        <br/>
+                        <br/>
+                        <input className="login-btn" type='submit' value="Submit"/>
+                    </form>
+                    <button className="login-btn" onClick={signup_button}>Sign Up</button>
+                    <button className="login-btn" onClick={return_button}>Go Back</button>
+                </div>
+            </div>
+            <footer>
+                    <p class="footer-text">NodeNation - 2022</p>
+            </footer>
         </div>
     )
 }
