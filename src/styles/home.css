@@ -1,8 +1,8 @@
-.welcome {
+/* .welcome {
     border: black 2px solid;
     font-size: 60px ;
     color: gold;
-}
+} */
 
 
 /* h1 {
@@ -19,3 +19,190 @@
     width: 100%;
     border: black 2px solid;
 } */
+  
+  .home-wrapper {
+    margin: auto;
+    background-size: cover;
+    height: 90vh;
+  }
+  
+  header {
+    background: #2e4c6d;
+    height: 12vh;
+    position: relative;
+  }
+  
+  h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 45px;
+  }
+  
+  h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+  }
+  
+  footer {
+    text-align: center;
+    justify-items: center;
+    background: #2e4c6d;
+    height: 10vh;
+  }
+  
+  .footer-text {
+    padding-top: 25px;
+    color: rgb(236, 205, 26);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .nav-area {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+  }
+  
+  .nav-area li {
+    display: inline-block;
+  }
+  
+  li {
+    color: rgb(236, 205, 26);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 60px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .link {
+    color: rgb(236, 205, 26);
+    text-decoration: none;
+  }
+  
+  .nav-area li a {
+    padding: 5px 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+  }
+  
+  li:hover {
+    color: silver;
+    text-decoration: underline;
+  }
+  
+  .logo-title {
+    float: left;
+    padding-top: 20px;
+    padding-left: 60px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(236, 205, 26);
+  }
+  
+  .welcome-text {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    margin: 12% 28%;
+    text-align: center;
+    color: rgb(236, 205, 26);
+    line-height: 55px;
+  }
+  
+  .start-btn {
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 3px solid;
+    background-color: #2e4c6d;
+    color: rgb(236, 205, 26);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .start-btn:hover {
+    background-color: grey;
+  }
+  
+  /*Login section*/
+  .login-section {
+    position: absolute;
+    width: 500px;
+    height: 280px;
+    margin: 8% 30.5%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    text-align: center;
+    padding: 30px;
+    line-height: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  input {
+    padding: 5px 15px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  .login-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+    background-color: #2e4c6d;
+    color: rgb(236, 205, 26);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .login-btn:hover {
+    background: grey;
+  }
+  
+  /*signup section*/
+  .signup-section {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    margin: 5% 30%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    text-align: center;
+    padding: 30px;
+    line-height: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .signup-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 3px solid black;
+    background-color: #2e4c6d;
+    color: rgb(236, 205, 26);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  
+  .signup-btn:hover {
+    background: grey;
+  }
+  
+  /*Contact section*/
+  .contact-section {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    margin: 0.5% 30%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    text-align: center;
+    padding: 30px;
+    line-height: 21px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
