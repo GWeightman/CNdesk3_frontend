@@ -39,7 +39,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
             <div>
                 <h1 className="pageTitle">Welcome to your admin portal</h1>
                 <h2 className="pageTitle">Here you can find all the listed jobs</h2>
-                
+
                 <div className="jobCards">
                 {jobs.map((job,index) =>{
                     return(
@@ -56,7 +56,7 @@ const Admin = ({jobs, setJobs, fname, sname}) => {
                         <p className="cardText1">£{job.pay_range}</p>
                         <h5 className="cardText">About the job: </h5>
                         <p className="cardText1">{job.job_description}</p>
-                        <button onClick={() => deleteHandler(job._id)}>Delete Job</button>
+                        <button className="submit" onClick={() => deleteHandler(job._id)}>Delete Job</button>
                     </div>
                     )})}
                 </div>  
