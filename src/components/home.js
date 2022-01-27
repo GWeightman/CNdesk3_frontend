@@ -4,7 +4,7 @@ import network from "../images/network.jpg";
 
 const Home = () => {
     return(
-        // <div>
+        //<div>
         //     <div className="welcome">
         //         <h1> Welcome to Node Nation!</h1>
         //         <p>A place to bring small coding projects and independent developers together</p>
@@ -13,11 +13,7 @@ const Home = () => {
         //         <button><Link to="/contact">contact us</Link></button>
         //         <button><Link to="/login">log in</Link></button>
         //     </div>
-        //     <div className="devbutton">
-        //         <p>These buttons are for development only and must be deleted before submission</p>
-        //         <button><Link to="/admin">Admin</Link></button>
-        //         <button><Link to="/mainpage">Developer</Link></button>
-        //     </div>
+        //     
         // </div>
 
         <div>
@@ -40,6 +36,11 @@ const Home = () => {
       <footer>
         <p class="footer-text">NodeNation - 2022</p>
       </footer>
+      <div className="devbutton">
+                 <p>These buttons are for development only and must be deleted before submission</p>
+                <button><Link to="/admin">Admin</Link></button>
+                <button><Link to="/mainpage">Developer</Link></button>
+             </div>
     </div>
     )
 }
