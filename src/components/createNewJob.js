@@ -28,7 +28,7 @@ const Create = ({clientname, setClientName, description, setDescription, salary,
           </nav>
         </div>
         <div className="createForm">
-          <h1 className="header">Create a new job</h1>  
+          <h1 className="pageTitle">Create a new job</h1>  
           <form>
             <p>Client name</p>
             <input onChange = {(e) => setClientName(e.target.value)} placeholder = 'clientname' />

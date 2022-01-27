@@ -94,16 +94,6 @@ body {
   
 }
 
-.logo {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: -30%;
-  margin-top: 5px;
-  color: rgb(236, 205, 26);
-  cursor: pointer;
-  padding-left: 100px;
-}
-
 .navbar li {
   display: inline-block;
   vertical-align: top;
